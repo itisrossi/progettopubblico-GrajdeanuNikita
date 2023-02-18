@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <p> Risulato</p>
+  <p> id="selectionSort"</p>  
+<script>
+selectionSort([1,9,8,7,5,4,2,3,6],1,9)
+
+function selectionSort( v, inizio, fine) 
+{
+ let posMinimo=0;
+ let scambia=0;
+ //ha tre vettori,ogni volta passeremo tutto il vettore e grazie a inzio a fine diciamo da dove a dove 
+ if (inizio===fine)    //caso base 
+        return;
+     else {
+        posMinimo= posizioneMinimo( v, inizio, fine )
+		scambia( v, inizio, posMinimo);
+        selectionSort ( v, inizio + 1, fine);
+     }
+}
+
+//selectionSort([4,5,6,2,3,4],0,[4,5,6,2,3,4].length -1)
+
+selectionSort(v, 0, v.length -1);
+
+function posizioneMinimo(v,inizio, fine) {
+    if(inizio === fine)
+    return inizio;
+else { 
+    let posMinimoRestante = posizioneMinimo( v, inizio+1, fine)
+    if (v[inizio] < v [posizioneMinimo(v, inizio+1, fine) ] )
+       return inizio;
+    else 
+       return posizioneMinimo(v, inizio +1, fine);
+
+}
+
+function scambia(v,da,a) {
+    let tmp= v[da];
+    v[da]= v[a];
+    v[a]= tmp;
+}
+
+</script>
+</body>
+</html>
